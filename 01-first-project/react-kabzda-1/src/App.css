@@ -1,0 +1,10 @@
+ul li {
+  list-style-type: georgian;
+}
+body {
+  font-size: 2rem;
+  margin: auto 20px;
+}
+.kurwa {
+  background-color: aquamarine;
+}
