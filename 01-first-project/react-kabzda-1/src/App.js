@@ -1,33 +1,36 @@
 import "./App.css";
+import Header from "./components/Header";
+import Navbar from "./components/Navbar";
 
 const App = () => {
   return (
-    <div>
+    <div className='app-wrapper'>
       <Header />
-      <Technologies />
+      <Navbar />
+      
+      <div className='content'>
+        <div>
+          <img className="mainPicture" src="https://miro.medium.com/max/11730/0*ihTZPO4iffJ8n69_"></img>
+        </div>
+        <div>
+          <img className="ava" src="https://miro.medium.com/max/1200/1*mk1-6aYaf_Bes1E3Imhc0A.jpeg"></img>
+          ava + descr
+        </div>
+        <div>
+          My posts
+          <div>
+            New post
+          </div>
+          <div>
+            post 1
+          </div>
+          <div>
+            post 2
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
 
-const Header = () => {
-  return (
-    <div>
-      <a href="#">Home</a>
-      <a href="#">News Feed</a>
-      <a href="#">Messsages</a>
-    </div>
-  );
-};
-const Technologies = () => {
-  return (
-    <div>
-      <ul>
-        <li>css</li>
-        <li>html</li>
-        <li>js</li>
-        <li>react</li>
-      </ul>
-    </div>
-  );
-};
 export default App;

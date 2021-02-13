@@ -1,10 +1,38 @@
-ul li {
-  list-style-type: georgian;
+.app-wrapper {
+  margin: 0 auto;
+  display: grid;
+  width: 1200px;
+  grid-template-areas: 
+  "h h"
+  "n c";
+
+  grid-template-rows: 60px 1fr;
+  grid-template-columns: 2fr 10fr;
+  grid-gap: 10px;
 }
-body {
-  font-size: 2rem;
-  margin: auto 20px;
+
+.header {
+  grid-area: h;
+  background-color: rgb(98, 192, 98);
 }
-.kurwa {
-  background-color: aquamarine;
+.header img {
+  width: 50px;
+}
+.nav {
+  grid-area: n;
+  background-color: indianred;
+}
+
+.content {
+  grid-area: c;
+  background-color: rgb(121, 169, 214);
+}
+
+.content .mainPicture {
+  width: 60%;
+  height: 300px;
+}
+.content .ava {
+  width: 150px;
+  
 }
