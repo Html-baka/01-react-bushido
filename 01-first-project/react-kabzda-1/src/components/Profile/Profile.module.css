@@ -1,0 +1,12 @@
+.content {
+  grid-area: c;
+  background-color: rgb(121, 169, 214);
+}
+.content .mainPicture {
+  width: 60%;
+  height: 300px;
+}
+.content .ava {
+  width: 150px;
+  
+}
