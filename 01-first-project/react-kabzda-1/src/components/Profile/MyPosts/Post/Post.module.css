@@ -1,5 +1,6 @@
 .item {
-  color: aqua;
+  color: rgb(5, 253, 253);
+  text-shadow: 1px 1px #0a6396;
 }
 .item img {
   width: 60px;
