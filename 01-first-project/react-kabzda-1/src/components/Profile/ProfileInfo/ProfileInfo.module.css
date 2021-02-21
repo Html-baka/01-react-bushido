@@ -1,0 +1,10 @@
+.mainPicture {
+  width: 60%;
+  height: 300px;
+}
+.ava {
+  width: 150px;
+}
+.avaWrapper {
+  padding: 10px;
+}
