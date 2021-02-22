@@ -12,5 +12,9 @@
    padding: 1em;
 }
 .message {
-
+   color: white;
+}
+.dialog a{
+   color: rgb(28, 5, 31);
+   text-decoration: none;
 }
