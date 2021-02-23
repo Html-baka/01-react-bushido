@@ -3,10 +3,17 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import Post from "./components/Profile/MyPosts/Post/Post";
+
+let posts = [
+  { id: 1, message: "Hey, how are you?", likeCounts: 15 },
+  { id: 2, message: "My first post", likeCounts: 3 }
+];
+let postsElements = posts.map( p => <Post likeCounts={p.likeCounts} message={p.message} />);
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <App postsElements = {postsElements}/>
   </React.StrictMode>,
   document.getElementById('root')
 );

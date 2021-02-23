@@ -1,13 +1,9 @@
 import s from "./MyPosts.module.css";
 import Post from "./Post/Post";
 
-const MyPosts = () => {
 
-  let posts = [
-    { id: 1, message: "Hey, how are you?", likeCounts: 15 },
-    { id: 2, message: "My first post", likeCounts: 3 }
-  ];
-  let postsElements = posts.map( p => <Post likeCounts={p.likeCounts} message={p.message} />);
+const MyPosts = (props) => {
+
   return (
     <div className={s.MyPostsWrapper}>
       <h3>My posts</h3>
@@ -20,7 +16,7 @@ const MyPosts = () => {
         </div>
       </div>
       <div className={s.posts}>
-        { postsElements }
+        { props.postsElements }
       </div>
     </div>
   );
