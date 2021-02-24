@@ -2,3 +2,17 @@
    color: rgb(28, 5, 31);
    text-decoration: none;
 }
+.dialogAva {
+   width: 70px;
+   height: 70px;
+   border-radius: 50%;
+   margin-right: 10px;
+   margin-bottom: 10px;
+}
+.dialogsItems img:last-child {
+   margin-bottom: 0px;
+}
+.linkWrapper {
+   display: flex;
+   align-items: center;
+}

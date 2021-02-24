@@ -1,0 +1,15 @@
+.wrapper {
+   padding: 5px;
+   text-decoration: none;
+}
+.ava {
+   width: 60px;
+   height: 60px;
+   border-radius: 50%;
+}
+.name {
+   color: rgb(18, 9, 156);
+}
+.navLink {
+   text-decoration: none;
+}

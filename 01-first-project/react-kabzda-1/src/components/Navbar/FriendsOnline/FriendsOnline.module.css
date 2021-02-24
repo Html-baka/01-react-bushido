@@ -1,0 +1,12 @@
+.main {
+   margin-top: 50px;
+}
+.wrapper {
+   display: flex;
+   flex-direction: row;
+   flex-flow: wrap;
+}
+.heading {
+   text-align: center;
+   color: rgb(18, 9, 156);
+}
