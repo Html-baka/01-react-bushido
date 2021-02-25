@@ -1,19 +1,29 @@
 import s from "./Dialogs.module.css";
-import DialogItem from "./DialogItem/DialogItem"
+import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
-
+import React from "react";
 const Dialogs = (props) => {
+  let dialogsElements = props.state.dialogs.map((d) => (
+    <DialogItem name={d.name} id={d.id} ava={d.ava} />
+  ));
+  let messagesElements = props.state.messages.map((m) => (
+    <Message message={m.message} />
+  ));
+  let textAreaElement = React.createRef();
 
-  let dialogsElements = props.state.dialogs.map( d => <DialogItem name={d.name} id={d.id} ava={d.ava} />);
-  let messagesElements = props.state.messages.map( m => <Message message={m.message}  />);
-
+  let sendMessage = () => {
+    let text = textAreaElement.current.value;
+    alert(text)
+  }
   return (
-    <div className={s.dialogs}>
-      <div className={s.dialogsItems}>
-        { dialogsElements }
+    <div>
+      <div className={s.dialogs}>
+        <div className={s.dialogsItems}>{dialogsElements}</div>
+        <div className={s.messages}>{messagesElements}</div>
       </div>
-      <div className={s.messages}>
-        { messagesElements }
+      <div className={s.textareaWrapper}>
+        <textarea ref={ textAreaElement }></textarea>
+        <button onClick={sendMessage} className={s.sendMessage}>Send</button>
       </div>
     </div>
   );
