@@ -1,9 +1,8 @@
-import { NavLink } from "react-router-dom";
 import s from "./FriendsOnline.module.css";
 import FriendOnlineItem from "./FriendOnlineItem/FriendOnlineItem"
 const FriendsOnline = (props) => {
   
-  let friendOnlineItem = props.state.friendsOnline.map( f => <FriendOnlineItem name={f.name} id={f.id} ava={f.ava}></FriendOnlineItem>)
+  let friendOnlineItem = props.store.state.navBar.friendsOnline.map( f => <FriendOnlineItem name={f.name} id={f.id} ava={f.ava}></FriendOnlineItem>)
   return (
     <div className={s.main}>
       <h4 className={s.heading}>Friends Online:</h4>

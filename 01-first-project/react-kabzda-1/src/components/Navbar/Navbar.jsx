@@ -22,7 +22,7 @@ const Navbar = (props) => {
         <NavLink to="/settings" activeClassName={s.active}>Settings</NavLink>
       </div>
       
-      <FriendsOnline state={props.state}/>
+      <FriendsOnline store={props.store}/>
     </nav>
   );
 };

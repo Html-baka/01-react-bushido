@@ -4,24 +4,25 @@ import React from "react";
 
 
 const MyPosts = (props) => {
+  
   let postsElements = 
-    props.posts.map( p => <Post likeCounts={p.likeCounts} message={p.message} />);
+    props.store.state.profilePage.posts.map( p => <Post likeCounts={p.likeCounts} message={p.message} />);
 
   let newPostElement = React.createRef();
 
   let addPost = () => { 
-    props.addPost()
+    props.store.addPost()
   }   
   let onPostChange = () => {
     let text = newPostElement.current.value;
-    props.updateNewPostText(text);
+    props.store.updateNewPostText(text);
   }
   return (
     <div className={s.MyPostsWrapper}>
       <h3>My posts</h3>
       <div>
         <div>
-          <textarea onChange={onPostChange} ref={newPostElement} value={props.newPostText} />
+          <textarea onChange={onPostChange} ref={newPostElement} value={props.store.state.profilePage.newPostText} />
         </div>
         <div>
           <button  onClick={ addPost }>Add post</button>

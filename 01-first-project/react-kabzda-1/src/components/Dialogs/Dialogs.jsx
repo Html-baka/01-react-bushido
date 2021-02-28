@@ -3,22 +3,23 @@ import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
 import React from "react";
 const Dialogs = (props) => {
-  let dialogsElements = props.dialogsPage.dialogs.map((d) => (
+  
+  let dialogsElements = props.store.state.dialogsPage.dialogs.map((d) => (
     <DialogItem name={d.name} id={d.id} ava={d.ava} />
   ));
-  let messagesElements = props.dialogsPage.messages.map((m) => (
+  let messagesElements = props.store.state.dialogsPage.messages.map((m) => (
     <Message message={m.message} />
   ));
   let textAreaElement = React.createRef();
 
   let sendMessage = () => {
     let text = textAreaElement.current.value;
-    props.sendMessage(text);
+    props.store.sendMessage(text);
     textAreaElement.current.value = '';
   }
   let onMessageChange = () => {
     let text = textAreaElement.current.value;
-    props.updateNewMessageText(text);
+    props.store.updateNewMessageText(text);
   }
   return (
     <div>
