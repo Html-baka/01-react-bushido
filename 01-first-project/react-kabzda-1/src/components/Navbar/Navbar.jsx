@@ -3,7 +3,7 @@ import FriendsOnline from "./FriendsOnline/FriendsOnline";
 import s from "./Navbar.module.css";
 
 const Navbar = (props) => {
-  
+
   return (
     <nav className={s.nav}>
       <div className={s.item}>
@@ -22,7 +22,7 @@ const Navbar = (props) => {
         <NavLink to="/settings" activeClassName={s.active}>Settings</NavLink>
       </div>
       
-      <FriendsOnline store={props.store}/>
+      <FriendsOnline state={props.state}/>
     </nav>
   );
 };

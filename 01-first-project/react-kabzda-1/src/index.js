@@ -6,21 +6,25 @@ import "./index.css";
 import App from "./App";
 import {BrowserRouter} from "react-router-dom";
 
-let rerenderEntireTree = (store) => {
+let rerenderEntireTree = (state) => {
   
   ReactDOM.render(
     <React.StrictMode>
       <BrowserRouter>
-        <App store={store}/>
+        <App state={state} addPost={store.addPost.bind(store)} 
+            updateNewPostText={store.updateNewPostText.bind(store)} 
+            sendMessage={store.sendMessage.bind(store)}
+            updateNewMessageText={store.updateNewMessageText.bind(store)}
+            />
       </BrowserRouter>
     </React.StrictMode>,
     document.getElementById("root")
   );
 }
-rerenderEntireTree(store);
+rerenderEntireTree(store.getState());
 
 store.subscribe(rerenderEntireTree);
-
+window.store = store;
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals

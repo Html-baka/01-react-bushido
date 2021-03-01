@@ -14,10 +14,11 @@ let App = (props) => {
     
       <div className="app-wrapper">
         <Header />
-        <Navbar store={props.store}/>
+        
+        <Navbar state={props.state.navBar}/>
         <div className="app-wrapper-content">
-          <Route path="/dialogs" render={ () => <Dialogs store={props.store}/>} />
-          <Route path="/profile" render={ () => <Profile store={props.store}/>} />
+          <Route path="/dialogs" render={ () => <Dialogs state={props.state.dialogsPage} sendMessage={props.sendMessage} updateNewMessageText={props.updateNewMessageText}/>} />
+          <Route path="/profile" render={ () => <Profile profilePage={props.state.profilePage} addPost={props.addPost} updateNewPostText={props.updateNewPostText}/>} />
           <Route path="/news" render={ () => <News />} />
           <Route path="/music" render={ () => <Music />} />
           <Route path="/settings" render={ () => <Settings />} />
