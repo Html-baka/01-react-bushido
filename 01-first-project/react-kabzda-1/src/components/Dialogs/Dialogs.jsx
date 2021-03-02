@@ -14,12 +14,12 @@ const Dialogs = (props) => {
 
   let sendMessage = () => {
     let text = textAreaElement.current.value;
-    props.sendMessage(text);
+    props.dispatch({ type: 'SEND-MESSAGE', dialogMessage: text });
     textAreaElement.current.value = '';
   }
   let onMessageChange = () => {
     let text = textAreaElement.current.value;
-    props.updateNewMessageText(text);
+    props.dispatch({ type: 'UPDATE-NEW-MESSAGE-TEXT', newText: text});
   }
   return (
     <div>
