@@ -3,6 +3,7 @@ import navBarReducer from "./navBar-reducer";
 import profileReducer from "./profile-reducer";
 
 let store = {
+   
    _state: {
       profilePage: {
          posts: [

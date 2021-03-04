@@ -11,10 +11,8 @@ import Settings from "./components/Settings/Settings";
 let App = (props) => {
   
   return (
-    
       <div className="app-wrapper">
         <Header />
-        
         <Navbar state={props.state.navBar}/>
         <div className="app-wrapper-content">
           <Route path="/dialogs" render={ () => <Dialogs state=
