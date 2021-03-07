@@ -11,7 +11,7 @@ import Settings from "./components/Settings/Settings";
 let App = () => {
   
   return (
-      <div className="app-wrapper">
+      <div className="app-wrapper"> 
         <Header />
         <NavbarContainer />
         <div className="app-wrapper-content">
@@ -19,6 +19,8 @@ let App = () => {
           <Route path="/profile" render={ () => <Profile />}/>
           <Route path="/news" render={ () => <News />} />
           <Route path="/music" render={ () => <Music />} />
+          <Route path="/users" render={ () => <div>users</div>}/>
+          
           <Route path="/settings" render={ () => <Settings />} />
         </div>
       </div>
