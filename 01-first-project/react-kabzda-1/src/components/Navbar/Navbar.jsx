@@ -3,7 +3,6 @@ import FriendsOnline from "./FriendsOnline/FriendsOnline";
 import s from "./Navbar.module.css";
 
 const Navbar = (props) => {
-
   return (
     <nav className={s.nav}>
       <div className={s.item}>
