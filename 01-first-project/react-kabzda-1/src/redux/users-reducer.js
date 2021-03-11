@@ -2,7 +2,7 @@ const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
 const SET_USERS = 'SET_USERS'
 let initialState = {
-  users: [ ]
+  users: [ ],
 //     {  id: 1,
 //        photoUrl: 'https://u.livelib.ru/reader/Simak_ss3497/r/lelxg9ii/lelxg9ii-r.jpg',
 //        followed: false,
