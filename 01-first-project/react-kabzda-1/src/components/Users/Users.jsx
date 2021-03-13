@@ -4,7 +4,9 @@ import user_undefined from "../../assets/images/user_undefined.png";
 
 let Users = (props) => {
   let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
-
+  //the number of pagesCount is huge, so will cut a little bit >_O
+  pagesCount= pagesCount > 10 ? 9 : pagesCount;
+  
   let pages = [];
   for (let i = 1; i <= pagesCount; i++) {
     pages.push(i);
