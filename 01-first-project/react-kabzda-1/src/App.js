@@ -8,6 +8,7 @@ import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
 import UsersContainer from "./components/Users/UsersContainer";
+import LoginPage from "./components/Login/Login";
 
 let App = () => {
   
@@ -23,6 +24,7 @@ let App = () => {
           <Route path="/news" render={ () => <News />} />
           <Route path="/music" render={ () => <Music />} />
           <Route path="/users" render={ () => <UsersContainer />} />
+          <Route path="/login" render={ () => <LoginPage/>} />
 
           <Route path="/settings" render={ () => <Settings />} />
         </div>

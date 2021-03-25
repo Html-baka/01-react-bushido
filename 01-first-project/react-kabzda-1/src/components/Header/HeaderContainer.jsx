@@ -1,21 +1,11 @@
-import * as axios from 'axios';
 import React from 'react';
 import { connect } from "react-redux";
 import Header from './Header';
-import {setAuthUserData} from '../../redux/auth-reducer';
-
+import {getMe} from '../../redux/auth-reducer';
 
 class HeaderContainer extends React.Component {
    componentDidMount() {
-      axios.get(`https://social-network.samuraijs.com/api/1.0/auth/me`, { 
-         withCredentials: true //because of cross-domen we need this param to autosend cookie
-      })
-         .then( response => {
-            if (response.data.resultCode === 0) {
-               let {email, id, login} = response.data.data;
-               this.props.setAuthUserData(email, id, login);
-            }
-         });
+      this.props.getMe();
    }
 
    render () {
@@ -28,6 +18,6 @@ const mapStateToProps = (state) => ({
    login: state.auth.login
 });
 
-export default connect (mapStateToProps, {setAuthUserData})(HeaderContainer);
+export default connect (mapStateToProps, {getMe})(HeaderContainer);
 
 
