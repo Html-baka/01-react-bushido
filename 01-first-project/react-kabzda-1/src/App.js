@@ -9,9 +9,19 @@ import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
 import UsersContainer from "./components/Users/UsersContainer";
 import LoginPage from "./components/Login/Login";
+import { Component } from "react";
+import { connect } from "react-redux";
+import { initializeApp } from "./redux/app-reducer";
+import Preloader from "./components/common/preloader/Preloader";
 
-let App = () => {
-  
+class App extends Component{
+  componentDidMount() {
+    this.props.initializeApp();
+ }
+  render() {
+    if (!this.props.initialized){
+      return <Preloader />
+    }
   return (
       <div className="app-wrapper"> 
         <HeaderContainer />
@@ -31,5 +41,11 @@ let App = () => {
       </div>
   );
 };
+}
+const mapStateToProps = (state) => ({
+  initialized: state.app.initialized
 
-export default App;
+})
+
+export default connect (mapStateToProps, { initializeApp })(App);
+
