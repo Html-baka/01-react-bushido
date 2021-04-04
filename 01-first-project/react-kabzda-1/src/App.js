@@ -28,14 +28,11 @@ class App extends Component{
         <NavbarContainer />
         <div className="app-wrapper-content">
           <Route path="/dialogs" render={ () => <DialogsContainer  />} />
-
           <Route path="/profile/:userId?" render={ () => <ProfileContainer />}/>
-
           <Route path="/news" render={ () => <News />} />
           <Route path="/music" render={ () => <Music />} />
           <Route path="/users" render={ () => <UsersContainer />} />
           <Route path="/login" render={ () => <LoginPage/>} />
-
           <Route path="/settings" render={ () => <Settings />} />
         </div>
       </div>
