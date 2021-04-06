@@ -3,11 +3,17 @@ import React from 'react';
 import Preloader from "../../common/preloader/Preloader";
 // import ProfileStatus from "./ProfileStatus";
 import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
+import user_undefined from "../../../assets/images/user_undefined.png";
 
 const ProfileInfo = (props) => {
   
   if (!props.profile) {
     return <Preloader />
+  }
+  const onAvaSmallSelected = (e) => {
+    if (e.target.files.length) {
+      props.savePhoto(e.target.files[0])
+    }
   }
   return (
     <div>
@@ -19,13 +25,15 @@ const ProfileInfo = (props) => {
       </div>
       
       <div className={s.avaWrapper}>
-      <div><img src={props.profile.photos.large}></img></div>
+      <div><img alt={"avatarka"} src={props.profile.photos.large }></img></div>
       <ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus} getStatus={props.getStatus}/>
-      
-        <img
-          className={s.ava}
-          src={props.profile.photos.small}
-        ></img>
+        
+        <div>
+          <img alt={"avatarka"} className={s.ava} src={props.profile.photos.small 
+            || user_undefined}
+          ></img>
+          { props.isOwner && <input type={"file"} onChange={onAvaSmallSelected}/>}
+        </div>
         <div><h4>{props.profile.fullName}</h4></div>
         <div>{props.profile.aboutMe}</div>
         
