@@ -5,7 +5,57 @@
 .ava {
   width: 150px;
   padding-top: 20px;
+  position:inherit;
+  z-index: 1;
+}
+.avaCover {
+  z-index: 33;
+  width: max-content;
+}
+.avaCover:hover + .avaUpload {
+  transition: opacity ease-out 1s ;
+  opacity: 1;
+}
+.avaUpload:hover{
+  transition: opacity ease-out 1s ;
+  opacity: 1;
 }
 .avaWrapper {
   padding: 10px;
+}
+.avaUpload {
+  transition: opacity ease-out 1s ;
+  opacity: 0;
+  bottom: 140px;
+  left: 55px;
+  width: 100%;
+  position: relative;
+}
+.avaUploadLabel {
+  width: 100%;
+  max-width: 40px;
+  height: 40px;
+  background: #5ea7e2;
+  display: flex;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.avaUploadInput {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+}
+.avaUploadLabel_iconWrapper {
+  height: 40px;
+  width: 40px;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.contact {
+  padding-left: 15px;
 }
