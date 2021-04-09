@@ -18,6 +18,10 @@ const ProfileInfo = (props) => {
       props.savePhoto(e.target.files[0])
     }
   }
+  const onSubmit = (formData) => {
+   props.saveProfile(formData).then(()=>{
+    setEditMode(false);
+   })}
   return (
     <div>
       <div>
@@ -40,14 +44,14 @@ const ProfileInfo = (props) => {
           { props.isOwner && 
           <div className={s.avaUpload}>
             <input className={s.avaUploadInput} type={"file"} id="input_file" onChange={onAvaSmallSelected}/>
-            <label className={s.avaUploadLabel} for="input_file">
+            <label className={s.avaUploadLabel} htmlFor="input_file">
               <span className={s.avaUploadLabel_iconWrapper}><img className={s.inputIcon} src="https://www.svgrepo.com/show/138917/download.svg" alt="Выбрать файл" width="25"/></span>
             </label>
           </div> }
         </div>
         <ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus} getStatus={props.getStatus}/>
 
-        { editMode ? <ProfileDataForm props={props}/> 
+        { editMode ? <ProfileDataForm initialValues={props.profile} profile={props.profile} onSubmit={onSubmit}/> 
           : <ProfileData goToEditMode={()=> {setEditMode(true)}} props={props}/>}
             
       </div>
@@ -56,7 +60,6 @@ const ProfileInfo = (props) => {
 };
 
 const ProfileData = ({props, goToEditMode}) => {
-  
   return <div>
 
 <div>
@@ -66,7 +69,7 @@ const ProfileData = ({props, goToEditMode}) => {
   
   <div>Looking for a job: {props.profile.lookingForAJob? 'Yes' : 'No'}</div>
   {props.profile.lookingForAJob && 
-    <div><div>Description</div> {props.profile.lookingForAJobDescription}</div>
+    <div><div>My proffesional skills</div> {props.profile.lookingForAJobDescription}</div>
    }
    <div>
      <b>Contacts:</b> {Object.keys(props.profile.contacts).map(key => {

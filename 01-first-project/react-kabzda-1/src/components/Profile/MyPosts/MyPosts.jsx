@@ -32,7 +32,7 @@ const MyPosts = React.memo((props) => {
     
     [...props.posts]
       .reverse()
-        .map( p => <Post likeCounts={p.likeCounts} message={p.message} key={p.id}/>);
+        .map( p => <Post key={p.id} likeCounts={p.likeCounts} message={p.message} key={p.id}/>);
 
   const onAddPost = (values) => {
     props.addPost(values.newPostText);

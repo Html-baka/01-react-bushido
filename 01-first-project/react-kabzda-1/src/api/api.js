@@ -1,4 +1,5 @@
 import * as axios from "axios";
+import { saveProfile } from "../redux/profile-reducer";
 
 const instance = axios.create({
    withCredentials: true, //because of cross-domen we need this param to autosend cookie
@@ -41,7 +42,10 @@ export const profileAPI = {
         'Content-Type': 'multipart/form-data'
       }
     });
-    
+  },
+  saveProfile(profile) {
+    return instance.put(`profile`, profile);
+
   }
   
 }

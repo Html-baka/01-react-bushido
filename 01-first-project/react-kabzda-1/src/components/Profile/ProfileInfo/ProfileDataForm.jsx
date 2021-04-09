@@ -1,44 +1,44 @@
 import React from "react";
+import s from "./ProfileInfo.module.css";
 import { Field, reduxForm } from "redux-form";
 import { required } from "../../../utils/validators/validators";
-import { Input } from "../../common/FormsControls/FormsControls";
-
-const ProfileDataForm = ({props})=>  {
-   
-  return (
-    <form>
+import { Input, Textarea } from "../../common/FormsControls/FormsControls";
+import style from "../../common/FormsControls/FormsControls.module.css"
+const ProfileDataForm = ({handleSubmit, profile, error})=>  {
+  return <form onSubmit={handleSubmit}>
       <div>
         <div>
-          <button onClick={()=>{}}>save</button>
+          <button>save</button>
         </div>
+        {error && <div className={style.formSummaryError}> {error}</div>}
         <div>
           <h4>Full name:</h4><Field placeholder={"Full name"} name={'fullName'} validate={[]} component={Input}/>
         </div>
-        <div>{props.profile.aboutMe}</div>
+        <div>About me:
+          <Field placeholder={"About me"} name={'aboutMe'} validate={[]} component={Textarea}/>
+        </div>
 
         <div>
-          Looking for a job: {props.profile.lookingForAJob ? "Yes" : "No"}
+          Looking for a job: <Field placeholder={""} name={'lookingForAJob'} validate={[]} component={Input} type={"checkbox"}/>
         </div>
-        {props.profile.lookingForAJob && (
           <div>
-            <div>Description</div> {props.profile.lookingForAJobDescription}
+            <div>Description
+            <Field placeholder={"Description"} name={'lookingForAJobDescription'} validate={[]} component={Textarea}/></div>
           </div>
-        )}
+  
         <div>
           <b>Contacts:</b>{" "}
-          {/* {Object.keys(props.profile.contacts).map((key) => {
+          {Object.keys(profile.contacts).map((key) => {
             return (
-              <Contact
-                key={key}
-                contactTitle={key}
-                contactValue={props.profile.contacts[key]}
-              />
+              <div key={key} className={s.contact}> 
+              <b>{key}: <Field placeholder={key} name={'contacts.' + key} validate={[]} component={Input}/></b>
+              </div>
             );
-          })} */}
+          })} 
         </div>
       </div>
     </form>
-  );
-}
+};
+ 
 const ProfileDataFormReduxForm = reduxForm({form: 'edit-profile'})(ProfileDataForm)
 export default ProfileDataFormReduxForm;
