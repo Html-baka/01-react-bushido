@@ -1,5 +1,4 @@
 import * as axios from "axios";
-import { saveProfile } from "../redux/profile-reducer";
 
 const instance = axios.create({
    withCredentials: true, //because of cross-domen we need this param to autosend cookie
@@ -53,10 +52,15 @@ export const headerAPI = {
   getMe(){
     return instance.get(`auth/me`);
   },
-  login(email, password, rememberMe = false){
-    return instance.post(`auth/login`, { email, password, rememberMe });
+  login(email, password, rememberMe = false, captcha = null){
+    return instance.post(`auth/login`, { email, password, rememberMe, captcha });
   },
   logout(){
     return instance.delete(`auth/login`);
+  }
+}
+export const securityAPI = {
+  getCaptcha(){
+    return instance.get(`security/get-captcha-url`);
   }
 }
