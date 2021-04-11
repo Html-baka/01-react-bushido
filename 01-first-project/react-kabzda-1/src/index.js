@@ -7,9 +7,8 @@ import MainApp from "./App";
 import store from "./redux/redux-store";
 
   ReactDOM.render(
-      <MainApp /> 
-    ,
-    document.getElementById("root")
+      <MainApp />,
+      document.getElementById("root")
   );
 
 window.store = store;
